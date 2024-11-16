@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:iddhi-sulakshana/store-management-system-ui.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:iddhi-sulakshana/store-management-system-backend.git
