@@ -33,7 +33,7 @@ jobs:
                           echo "IMAGE_VERSION=$NEW_TAG" >> $GITHUB_ENV
                       else
                           echo "Unable to parse the latest tag from Docker Hub."
-                          exit 1
+                          echo "IMAGE_VERSION=alpine-1.0.0" >> $GITHUB_ENV
                       fi
                   fi
 
