@@ -1,0 +1,11 @@
+version: "3"
+services:
+    frontend:
+        build: ./frontend
+        # Add the relavant image name here
+        image: iddhi/tnd-system:frontend-${IMAGE_VERSION}
+
+    backend:
+        build: ./backend
+        # Add the relavant image name here
+        image: iddhi/tnd-system:backend-${IMAGE_VERSION}

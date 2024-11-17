@@ -1,0 +1,43 @@
+version: "3"
+services:
+    frontend:
+        # Add the relavant image name here
+        image: iddhi/tnd-system:backend-${IMAGE_VERSION}
+        ports:
+            - "80:80"
+        environment:
+            - PORT=80
+            - VITE_BACKEND_PORT=http://localhost:3000
+        stdin_open: true
+        tty: true
+
+    backend:
+        # Add the relavant image name here
+        image: iddhi/tnd-system:backend-${IMAGE_VERSION}
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=production
+            - PORT=3000
+            - DB=${DB:-mongodb://admin:password@database:27017/mern_template}
+        depends_on:
+            - database
+        networks:
+            - database-driver
+        stdin_open: true
+        tty: true
+
+    # database
+    database:
+        image: mongo:6.0.15-rc0-jammy
+        ports:
+            - "27017:27017"
+        networks:
+            - database-driver
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=password
+
+networks:
+    database-driver:
+        driver: bridge

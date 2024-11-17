@@ -1,0 +1,60 @@
+name: Docker Build and Publish
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        name: Build and Publish Docker Image
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Image Version
+              run: |
+                  IMAGE_VERSION=$(echo "${{ github.event.head_commit.message }}" | cut -d ' ' -f 1)
+                  if [[ "$IMAGE_VERSION" =~ ^[a-z]+-[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                      echo "IMAGE_VERSION=$IMAGE_VERSION" >> $GITHUB_ENV
+                  else
+                      echo "Version pattern mismatch or not specified."
+                      LATEST_TAG=$(curl -s "https://hub.docker.com/v2/repositories/iddhi/tnd-system/tags/?page_size=1" | jq -r '.results[0].name')
+                      if [[ "$LATEST_TAG" =~ ^.*-([a-z]+)-([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+                          PREFIX="${BASH_REMATCH[1]}"
+                          MAJOR="${BASH_REMATCH[2]}"
+                          MINOR="${BASH_REMATCH[3]}"
+                          PATCH="${BASH_REMATCH[4]}"
+
+                          PATCH=$((PATCH + 1))
+
+                          # Construct the new version
+                          NEW_TAG="${PREFIX}-${MAJOR}.${MINOR}.${PATCH}"
+                          echo "IMAGE_VERSION=$NEW_TAG" >> $GITHUB_ENV
+                      else
+                          echo "Unable to parse the latest tag from Docker Hub."
+                          exit 1
+                      fi
+                  fi
+
+            - name: Login to the Dockerhub
+              uses: docker/login-action@v3
+              with:
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+            - name: Build and Push Docker Image
+              run: |
+                  docker-compose -f ./docker-compose.publish.yaml build
+                  docker-compose -f ./docker-compose.publish.yaml push
+
+            - name: Create Release for Docker Image
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ env.IMAGE_VERSION }}
+                  release_name: Release ${{ env.IMAGE_VERSION }}
+                  body: "Release of version ${{ env.IMAGE_VERSION }}"
+                  draft: false
+                  prerelease: false

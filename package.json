@@ -1,0 +1,15 @@
+{
+    "name": "tnd-system",
+    "version": "1.0.0",
+    "author": "",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "description": "tnd system",
+    "keywords": [],
+    "license": "ISC",
+    "scripts": {
+        "install": "cd backend/ && bun install && cd ../frontend/ && bun install",
+        "start": "concurrently \"cd backend/ && bun run dev\" \"cd frontend/ && bun run dev\""
+    }
+}
