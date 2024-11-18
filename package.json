@@ -10,6 +10,7 @@
     "license": "ISC",
     "scripts": {
         "install": "cd backend/ && bun install && cd ../frontend/ && bun install",
-        "start": "concurrently \"cd backend/ && bun run dev\" \"cd frontend/ && bun run dev\""
+        "start": "concurrently \"cd backend/ && bun run dev\" \"cd frontend/ && bun run dev\"",
+        "commit": "concurrently \"cd backend/ && git add . && (git commit -m '$npm_config_message' || true) && git push\" \"cd frontend/ && git add . && (git commit -m '$npm_config_message' || true) && git push\" && git add . && git commit -m '$npm_config_message' && git push"
     }
 }
