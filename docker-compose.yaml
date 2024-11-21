@@ -1,8 +1,9 @@
 name: tnd-system
 services:
     frontend:
+        build: ./frontend
         # Add the relavant image name here
-        image: iddhi/tnd-system:frontend-alpine-1.0.1
+        image: iddhi/tnd-system:frontend-alpine-1.0.2
         ports:
             - "80:80"
         environment:
@@ -12,8 +13,9 @@ services:
         tty: true
 
     backend:
+        build: ./backend
         # Add the relavant image name here
-        image: iddhi/tnd-system:backend-alpine-1.0.1
+        image: iddhi/tnd-system:backend-alpine-1.0.2
         ports:
             - "3000:3000"
         environment:
