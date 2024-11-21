@@ -1,3 +1,4 @@
+name: tnd-system
 services:
     frontend:
         # Add the relavant image name here
@@ -26,6 +27,8 @@ services:
             - database-driver
         stdin_open: true
         tty: true
+        volumes:
+            - upload_data:/usr/src/app/uploads
 
     # database
     database:
@@ -37,7 +40,13 @@ services:
         environment:
             - MONGO_INITDB_ROOT_USERNAME=admin
             - MONGO_INITDB_ROOT_PASSWORD=password
+        volumes:
+            - mongo_data:/data/db
 
 networks:
     database-driver:
         driver: bridge
+
+volumes:
+    mongo_data:
+    upload_data:
