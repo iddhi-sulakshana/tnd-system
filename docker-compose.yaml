@@ -31,6 +31,7 @@ services:
         tty: true
         volumes:
             - upload_data:/usr/src/app/uploads
+            - whatsapp_data:/usr/src/app/whatsapp_cache
 
     # database
     database:
@@ -52,3 +53,4 @@ networks:
 volumes:
     mongo_data:
     upload_data:
+    whatsapp_data:

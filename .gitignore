@@ -37,3 +37,5 @@
 # .ipynb_checkpoints folder
 **/.ipynb_checkpoints
 **/__pycache__
+**/whatsapp_cache/
+**/.wwebjs_cache/
