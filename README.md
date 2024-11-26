@@ -6,3 +6,4 @@
 -   TODO: When Adding Quantity if stock details are same increase the quantity instead of creating a new batch
 -   TODO: Add searchable select boxes
 -   TODO: Add auto selectable prices modal
+-   TODO: POS Customer creation not working properly
