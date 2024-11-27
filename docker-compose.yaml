@@ -22,7 +22,9 @@ services:
             - NODE_ENV=production
             - PORT=3000
             - JWT_PRIVATE_KEY=SecretKey
-            - DB=${DB:-mongodb://admin:password@database:27017/mern_template}
+            - DB=${DB:-mongodb://admin:password@database:27017/tnd_system}
+            - EMAIL=company_email
+            - EMAIL_PASSWORD=company_email_password
         depends_on:
             - database
         networks:
