@@ -3,7 +3,7 @@ services:
     frontend:
         build: ./frontend
         # Add the relavant image name here
-        image: iddhi/tnd-system:frontend-alpine-1.0.8
+        image: iddhi/tnd-system:frontend-alpine-1.0.10
         ports:
             - "80:80"
         environment:
@@ -15,7 +15,7 @@ services:
     backend:
         build: ./backend
         # Add the relavant image name here
-        image: iddhi/tnd-system:backend-alpine-1.0.8
+        image: iddhi/tnd-system:backend-alpine-1.0.10
         ports:
             - "3000:3000"
         environment:
@@ -56,3 +56,7 @@ volumes:
     mongo_data:
     upload_data:
     whatsapp_data:
+        driver_opts:
+            type: none
+            o: bind
+            device: /home/iddhi/whatsapp_data
