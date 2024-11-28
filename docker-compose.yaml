@@ -22,7 +22,7 @@ services:
             - NODE_ENV=production
             - PORT=3000
             - JWT_PRIVATE_KEY=SecretKey
-            - DB=${DB:-mongodb://admin:password@database:27017/tnd_system}
+            - DB=mongodb://admin:password@database:27017/tnd_system
             - EMAIL=company_email
             - EMAIL_PASSWORD=company_email_password
         depends_on:
@@ -56,7 +56,3 @@ volumes:
     mongo_data:
     upload_data:
     whatsapp_data:
-        driver_opts:
-            type: none
-            o: bind
-            device: /home/iddhi/whatsapp_data
