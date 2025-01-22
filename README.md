@@ -39,6 +39,10 @@
 - [ ] View cash reconcilation to identify errors in cash handling.
 - [ ] In the end of the day view a detailed audit trail of all cash movements (withdrawals, Deposits, Transactions)
 - [x] Delete customers from the system.
+- [x] Manage Suppliers (Add / Edit / Delete)
+- [ ] Manage Purchase orders from the suppliers for the inventory.
+- [ ] Add Cheques as payment method for the purchase orders.
+- [ ] Notify when cheque due date is coming.
 
 ## Cashiers
 - [x] Scan the barcode and it will quickly add product to the order.
