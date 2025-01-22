@@ -19,6 +19,8 @@
 ## Admin
 - [ ] When System is running for the first time user need to add relevant details for the Company and the Admin details.
 - [ ] Manage Cashiers and Managers (Add / Delete / Edit)
+- [x] Export the data from the system / create backup.
+- [x] Restore the data from the backup.
 
 ## Managers
 - [x] Manage Products (Add / Delete / Edit)
