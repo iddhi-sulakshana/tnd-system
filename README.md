@@ -49,6 +49,7 @@
 -   [ ] Manage Purchase orders from the suppliers for the inventory.
 -   [ ] Add Cheques as payment method for the purchase orders.
 -   [ ] Notify when cheque due date is coming.
+-   [ ] Refund the customer bill.
 
 ## Cashiers
 
@@ -68,3 +69,4 @@
 -   [ ] Follow ups to do track the reconcilation of missing cash.
 -   [x] Send Automatic WhatsApp message of the order details to the customer.
 -   [x] Send Automatic Email message of the order details to the customer.
+-   [ ] In the POS window most used products should be in the top of the page for easy access.
