@@ -20,10 +20,11 @@
 
 ## Admin
 
--   [ ] When System is running for the first time user need to add relevant details for the Company and the Admin details.
+-   [x] When System is running for the first time user need to add relevant details for the Company and the Admin details.
 -   [ ] Manage Cashiers and Managers (Add / Delete / Edit)
 -   [x] Export the data from the system / create backup.
 -   [x] Restore the data from the backup.
+-   [ ] Should be able to change the company details on the settings page.
 
 ## Managers
 
