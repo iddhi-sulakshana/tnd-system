@@ -17,6 +17,7 @@
     -   [x] Admin
     -   [ ] Managers
     -   [ ] Cashiers
+-   [ ] When something tries to delete ask for user confirmation modal.
 
 ## Admin
 
