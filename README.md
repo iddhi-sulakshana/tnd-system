@@ -18,6 +18,7 @@
     -   [ ] Managers
     -   [ ] Cashiers
 -   [ ] When something tries to delete ask for user confirmation modal.
+-   [ ] When something deletes from the database try not to delete it but mark it as deleted for other references to get the values from the database.
 
 ## Admin
 
