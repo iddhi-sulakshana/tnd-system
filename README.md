@@ -26,7 +26,7 @@
 -   [ ] Manage Cashiers and Managers (Add / Delete / Edit)
 -   [x] Export the data from the system / create backup.
 -   [x] Restore the data from the backup.
--   [ ] Should be able to change the company details on the settings page.
+-   [ ] Should be able to update the company details on the settings page.
 
 ## Managers
 
